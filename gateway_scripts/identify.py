@@ -33,6 +33,7 @@ def identify(connection, response):
             cache['session_id'] = response['d']['session_id']
             cache['resume_gateway_url'] = response['d']['resume_gateway_url'] + '?v=10&encoding=json'
             cache['last_event_id'] = response['s']
+
             if response['op'] == 0:
                 print('Identified')
                 cache['last_event_id'] = response['s']
