@@ -41,5 +41,5 @@ def identify(connection, response):
 
             print('Not identified')
             return False
-    except RuntimeError:
+    except Exception:
         print('Could not identify. Make sure bot token is correct.')
