@@ -1,5 +1,19 @@
-# Discord gateway websocket connection
+# PyCord :snake:
 
-This is a script written in Python to be able to connect through websocket to Discord gateway and send events through websockets.
+`PyCord` is a client for [Discord Gateway](https://discord.com/developers/docs/topics/gateway), written in Python.
 
-To start using this script you need to create a bot in Discord and use it's token.
+Connection to gateway is established through WebSockets.
+
+This client is compatible with Python 3.
+
+# Documentation
+To start using `PyCord`:
+* Go to [Discord Applications](https://discord.com/developers/applications).
+* Copy bot token and place it in `.env` configuration file.
+* Start the client by running: `python3 start.py`.
+* Client will establish WebSocket connection to Discord Gateway.
+
+# Implementation progress
+> [!IMPORTANT]
+> Currently `PyCord` only connects and receives events from Discord server.
+> More features will be added in future.
