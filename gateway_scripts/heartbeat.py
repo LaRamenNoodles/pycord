@@ -7,24 +7,24 @@ def get_payload(response):
         'd': response['s'],
     }
 
-def send_heartbeat(connection, response):
-    print('Sending heartbeat...')
-    try:
-        jsonMessage = json.dumps(get_payload(response))
-        connection.send(jsonMessage)
-    except Exception:
-        print('Something went wrong while sending heartbeat')
-
 def initiate_heartbeat_thread(connection, response):
     try:
-        if 'd' in response and response['d'] is not None and 'heartbeat_interval' in response['d']:
-            hbInterval = response['d']['heartbeat_interval']
-
+        if response['op'] == 10:
             send_heartbeat(connection, response)
-
-            hbProcess = Timer(hbInterval / 1000.0, send_heartbeat, [connection, response])
-            hbProcess.start()
 
             return True
     except Exception:
         print('Something went wrong while initiating heartbeat thread')
+
+def send_heartbeat(connection, response):
+    print('Sending heartbeat...')
+    try:
+        hbInterval = response['d']['heartbeat_interval']
+        jsonMessage = json.dumps(get_payload(response))
+
+        connection.send(jsonMessage)
+
+        hbProcess = Timer(hbInterval / 1000.0, send_heartbeat, [connection, response])
+        hbProcess.start()
+    except Exception:
+        print('Something went wrong while sending heartbeat')

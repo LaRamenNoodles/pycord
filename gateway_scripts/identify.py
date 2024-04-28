@@ -20,15 +20,15 @@ PAYLOAD = {
 }
 
 def identify(connection, response):
-    print('Identifying...')
     try:
-        if 'op' in response and response['op'] == 11:
+        if response['op'] == 11:
+            print('Identifying...')
             jsonMessage = json.dumps(PAYLOAD)
             connection.send(jsonMessage)
             
             response = json.loads(connection.recv())
 
-            if 't' in response and response['t'] == 'READY':
+            if response['t'] == 'READY':
                 print('Identified')
                 return True
 
