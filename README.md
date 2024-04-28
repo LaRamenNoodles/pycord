@@ -2,7 +2,7 @@
 
 `PyCord` is a client for [Discord Gateway](https://discord.com/developers/docs/topics/gateway), written in Python.
 
-Connection to gateway is established through WebSockets.
+Connection to gateway is established through WebSocket connection.
 
 This client is compatible with Python 3.
 
