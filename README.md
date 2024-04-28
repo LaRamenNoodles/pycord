@@ -16,4 +16,7 @@ To start using `PyCord`:
 # Implementation progress
 > [!IMPORTANT]
 > Currently `PyCord` only connects and receives events from Discord server.
+> 
+> Handling of disconnect is implemented. `PyCord` will automatically resume connection.
+> 
 > More features will be added in future.
